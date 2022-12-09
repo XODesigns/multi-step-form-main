@@ -29,14 +29,82 @@
 
 }
 
-.form-sidebar{
+button.next-step{
+  width:20%;
+  margin-left:auto;
+}
 
+/* Sidebar styling */
+
+.form-sidebar{
   grid-column: 1/2;
   background: url('../src/assets/images/bg-sidebar-desktop.svg');
+  border-radius: 15px;
+  color: var(--White);
+  padding: 8%;
+}
+
+.form-sidebar span{
+  border: 1px solid var(--White);
+  font-weight: 500;
+  border-radius: 50px;
+  width:30px;
+  height: 30px;
+
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.step-text{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15%;
+}
+
+.form-sidebar h4{
+  font-size: 0.7em;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+.form-sidebar h3{
+    font-size: 0.9em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.your-info, .plan, .add-ons, .summary{
+  display: flex;
+  align-items: center;
+  width: 70%;
 }
 
 .form-info{
 
   grid-column: 2/3;
+  padding:0 8%;
 
+  color: var(--Marine-blue);
 }
+
+
+/* Personal Info form page */
+
+.personal-info h1{
+  font-size: 1.9em;
+  margin-bottom: 5px;
+}
+
+.personal-info h2{
+  font-size: 0.9em;
+  font-weight: 500;
+  color:var(--Cool-gray)
+}
+
+.personal-form{
+  display: flex;
+  flex-direction: column;
+}
+
