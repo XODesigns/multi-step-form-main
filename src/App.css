@@ -30,8 +30,16 @@
 }
 
 button.next-step{
-  width:20%;
+  width:25%;
   margin-left:auto;
+  margin-top:20%;
+  margin-bottom: 5%;
+  background-color: var(--Marine-blue);
+  border: none;
+  border-radius: 5px;
+  padding: 2%;
+  color: var(--White);
+  font-weight: 700;
 }
 
 /* Sidebar styling */
@@ -39,6 +47,8 @@ button.next-step{
 .form-sidebar{
   grid-column: 1/2;
   background: url('../src/assets/images/bg-sidebar-desktop.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
   border-radius: 15px;
   color: var(--White);
   padding: 8%;
@@ -92,6 +102,10 @@ align-items: center;
 
 /* Personal Info form page */
 
+.personal-info{
+  margin-top: 10%;
+}
+
 .personal-info h1{
   font-size: 1.9em;
   margin-bottom: 5px;
@@ -106,5 +120,21 @@ align-items: center;
 .personal-form{
   display: flex;
   flex-direction: column;
+  margin-top: 6%;
+}
+
+.personal-form label{
+  font-size: 0.9em;
+  font-weight: 700;
+  padding-bottom: 1%;
+  padding-top: 3%;
+}
+
+.personal-form input{
+  border: 1px solid var(--Light-gray);
+  border-radius: 8px;
+  padding:3%;
+  color: var(--Cool-gray);
+  font-weight: 700;
 }
 

@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Buttons() {
+function Buttons({btnClass, name}) {
   return (
     <>
 
-    <button className='next-step' type='submit'>Next Step</button>
+    <button className={btnClass} type='submit'>{name}</button>
     
     </>
   )
