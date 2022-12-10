@@ -21,6 +21,7 @@
   background-color: var(--White);
   border-radius: 15px;
   width:800px;
+  height: 550px;
   display: grid;
   grid-template-columns: 2fr 4fr;
   gap:12px;
@@ -31,7 +32,7 @@
 
 button.next-step{
   width:25%;
-  margin-left:auto;
+  margin-left:74%;
   margin-top:20%;
   margin-bottom: 5%;
   background-color: var(--Marine-blue);
@@ -46,8 +47,8 @@ button.next-step{
 
 .form-sidebar{
   grid-column: 1/2;
-  background: url('../src/assets/images/bg-sidebar-desktop.svg');
-  background-size: contain;
+  background: url('../src/components/images/bg-sidebar-desktop.svg');
+  background-size: 550px contain;
   background-repeat: no-repeat;
   border-radius: 15px;
   color: var(--White);
@@ -100,41 +101,123 @@ align-items: center;
 }
 
 
-/* Personal Info form page */
+/* This is styling for the different pages */
 
-.personal-info{
+.personal-info, .select-plan{
   margin-top: 10%;
+  display: flex;
+  flex-direction: column;
 }
 
-.personal-info h1{
+.personal-info h1, .select-plan h1{
   font-size: 1.9em;
   margin-bottom: 5px;
 }
 
-.personal-info h2{
+.personal-info h2, .select-plan h2{
   font-size: 0.9em;
   font-weight: 500;
   color:var(--Cool-gray)
 }
 
-.personal-form{
+.personal-form, .plan-form{
   display: flex;
   flex-direction: column;
   margin-top: 6%;
+  height: 30%;
 }
 
-.personal-form label{
+.personal-form label, .select-plan label{
   font-size: 0.9em;
   font-weight: 700;
   padding-bottom: 1%;
   padding-top: 3%;
 }
 
-.personal-form input{
+.personal-form input, .select-plan input{
   border: 1px solid var(--Light-gray);
   border-radius: 8px;
   padding:3%;
   color: var(--Cool-gray);
   font-weight: 700;
+}
+
+.plan-cards{
+  display: flex;
+  justify-content: space-between;
+}
+
+.plan-card{
+  border:1px solid var(--Marine-blue);
+  width: 25%;
+  border-radius: 10px;
+  padding: 3%;
+}
+
+.plan-card h3{
+  font-size: 1em;
+  margin-bottom: 0;
+  margin-top: 30%;
+}
+
+.plan-card p{
+  margin-top: 2%;
+  margin-bottom: 0;
+  font-size: 0.9em;
+  color: var(--Cool-gray);
+}
+
+.slider{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+  margin-top:4%;
+}
+
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 20px;
+  background: var(--Marine-blue);
+  border-radius: 35px;
+  border:none;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--White) !important;
+  border: 1px solid var(--White) !important;
+  border-radius: 35px;
+  width: 12px;
+  height: 12px;
+}
+input[type="range"]::-moz-range-thumb {
+  background: var(--White) !important;
+  border: 1px solid var(--White) !important;
+  border-radius: 35px;
+  width: 12px;
+  height: 12px;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  background: var(--White) !important;
+  border: 1px solid var(--White) !important;
+  border-radius: 35px;
+}
+input[type="range"]:focus::-moz-range-thumb {
+  background: var(--White) !important;
+  border: 1px solid var(--White) !important;
+  border-radius: 35px;
 }
 

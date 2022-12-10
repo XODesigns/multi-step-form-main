@@ -1,5 +1,6 @@
 import React from 'react'
 import PersonalInfo from './form-pages/PersonalInfo'
+import Plan from './form-pages/Plan'
 import Sidebar from './Sidebar'
 
 function Form() {
@@ -9,6 +10,7 @@ function Form() {
 
   <div className='form-info'>
       <PersonalInfo />
+
   </div>
   
   </>
