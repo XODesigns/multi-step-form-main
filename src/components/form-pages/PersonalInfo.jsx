@@ -24,7 +24,7 @@ function PersonalInfo() {
     placeholder='e.g +1 234 567 890'
     />
 
-    <Buttons btnClass={'next-step'} name={'Next Step'} />
+    <Buttons />
     </form>
     </div>
   )

@@ -103,38 +103,38 @@ align-items: center;
 
 /* This is styling for the different pages */
 
-.personal-info, .select-plan{
+.personal-info, .select-plan, .add-ons-info{
   margin-top: 10%;
   display: flex;
   flex-direction: column;
 }
 
-.personal-info h1, .select-plan h1{
+.personal-info h1, .select-plan h1, .add-ons-info h1{
   font-size: 1.9em;
   margin-bottom: 5px;
 }
 
-.personal-info h2, .select-plan h2{
+.personal-info h2, .select-plan h2, .add-ons-info h2{
   font-size: 0.9em;
   font-weight: 500;
   color:var(--Cool-gray)
 }
 
-.personal-form, .plan-form{
+.personal-form, .plan-form, .add-ons-form{
   display: flex;
   flex-direction: column;
   margin-top: 6%;
   height: 30%;
 }
 
-.personal-form label, .select-plan label{
+.personal-form label, .plan-form label, .add-ons-form label{
   font-size: 0.9em;
   font-weight: 700;
   padding-bottom: 1%;
   padding-top: 3%;
 }
 
-.personal-form input, .select-plan input{
+.personal-form input, .plan-form input {
   border: 1px solid var(--Light-gray);
   border-radius: 8px;
   padding:3%;
@@ -219,5 +219,118 @@ input[type="range"]:focus::-moz-range-thumb {
   background: var(--White) !important;
   border: 1px solid var(--White) !important;
   border-radius: 35px;
+}
+
+.addon-labels h3{
+  font-size: 0.8em;
+  margin-bottom: 0%;
+}
+
+.addon-labels p{
+  color:var(--Cool-gray);
+  font-size:0.7em;
+  margin-top: 1%;
+}
+
+.add-on-checkbox span{
+  font-size: 0.8em;
+  color: var(--Purplish-blue);
+}
+
+.add-on-checkbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--Light-gray);
+  border-radius: 5px;
+  padding: 1% 4%;
+  margin-bottom:4%;
+}
+
+.last-child{
+  margin-bottom:0% !important;
+}
+
+.add-on-input{
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
+
+.add-on-input input{
+  margin-right: 5%;
+}
+
+
+input[type="checkbox"]{
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  font: inherit;
+  color: currentColor;
+  width: 0.9em;
+  height: 0.9em;
+  border:1px solid var(--Light-gray);
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before{
+  content: '';
+  width: 0.9em;
+  height: 0.9em;
+  border-radius: 0.15em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--Purplish-blue);
+  position: relative;
+ 
+}
+
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+
+}
+
+input[type="checkbox"]::after{
+  content: '\f00c';
+  font-family: "Font Awesome 6 Free";
+  font-size: 0.7em;
+  color:var(--White);
+  font-weight: 900;
+  /* width: 0.5em; */
+  transform: scale(0);
+  position: absolute;
+  
+  transition: 120ms transform ease-in-out;
+  
+}
+
+
+input[type="checkbox"]:checked::after {
+  transform: scale(1);
+
+}
+
+.links button{
+  margin: 0 !important;
+}
+
+.links{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:20%;
+}
+
+.links a{
+  text-decoration: none;
+  color: var(--Cool-gray);
+  font-size: 0.8em;
+  font-weight: 500;
 }
 
