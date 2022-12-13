@@ -30,17 +30,22 @@
 
 }
 
-button.next-step{
+button.next-step, button.confirm{
   width:25%;
   margin-left:74%;
-  margin-top:20%;
-  margin-bottom: 5%;
+  /* margin-top:20%; */
+  /* margin-bottom: 5%; */
   background-color: var(--Marine-blue);
   border: none;
   border-radius: 5px;
   padding: 2%;
   color: var(--White);
-  font-weight: 700;
+  font-weight: 500;
+  font-family:  'Ubuntu', sans-serif;
+}
+
+button.confirm{
+  background-color: var(--Purplish-blue) !important;
 }
 
 /* Sidebar styling */
@@ -103,38 +108,38 @@ align-items: center;
 
 /* This is styling for the different pages */
 
-.personal-info, .select-plan, .add-ons-info{
+.personal-info, .select-plan, .add-ons-info, .summary-info{
   margin-top: 10%;
   display: flex;
   flex-direction: column;
 }
 
-.personal-info h1, .select-plan h1, .add-ons-info h1{
+.personal-info h1, .select-plan h1, .add-ons-info h1, .summary-info h1{
   font-size: 1.9em;
   margin-bottom: 5px;
 }
 
-.personal-info h2, .select-plan h2, .add-ons-info h2{
+.personal-info h2, .select-plan h2, .add-ons-info h2, .summary-info h2{
   font-size: 0.9em;
   font-weight: 500;
   color:var(--Cool-gray)
 }
 
-.personal-form, .plan-form, .add-ons-form{
+.personal-form, .plan-form, .add-ons-form, .summary-form{
   display: flex;
   flex-direction: column;
   margin-top: 6%;
   height: 30%;
 }
 
-.personal-form label, .plan-form label, .add-ons-form label{
+.personal-form label, .plan-form label, .add-ons-form label, .summary-form label{
   font-size: 0.9em;
   font-weight: 700;
   padding-bottom: 1%;
   padding-top: 3%;
 }
 
-.personal-form input, .plan-form input {
+.personal-form input, .plan-form input, .summary-form input {
   border: 1px solid var(--Light-gray);
   border-radius: 8px;
   padding:3%;

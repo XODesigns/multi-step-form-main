@@ -2,7 +2,9 @@ import React from 'react'
 import AddOns from './form-pages/AddOns'
 import PersonalInfo from './form-pages/PersonalInfo'
 import Plan from './form-pages/Plan'
+import Summary from './form-pages/Summary'
 import Sidebar from './Sidebar'
+import Buttons from './Buttons'
 
 function Form() {
   return (
@@ -10,8 +12,9 @@ function Form() {
   <Sidebar />
 
   <div className='form-info'>
-      <AddOns />
-    
+
+    <Summary />
+    <Buttons btnClass={'next-step'} name={'Next Step'}/>
   </div>
   
   </>
