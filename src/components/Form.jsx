@@ -10,26 +10,33 @@ import Sidebar from './Sidebar'
 function Form() {
 
   const [pages, setPages] = useState(0)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    Plan: '',
+    addons:'',
+  })
 
   const conditionalComponent = () => {
     switch (pages) {
       case 0:
-        return <PersonalInfo />
+        return <PersonalInfo formData={formData} setFormData={setFormData} />
 
         case 1:
-        return <Plan />
+        return <Plan formData={formData} setFormData={setFormData} />
 
         case 2:
-        return <AddOns />
+        return <AddOns formData={formData} setFormData={setFormData} />
 
         case 3:
-        return <Summary />
+        return <Summary formData={formData} setFormData={setFormData} />
 
         case 4:
-        return <ThankYou />
+        return <ThankYou formData={formData} setFormData={setFormData} />
     
       default:
-        return <PersonalInfo />
+        return <PersonalInfo formData={formData} setFormData={setFormData} />
     }
   }
 
