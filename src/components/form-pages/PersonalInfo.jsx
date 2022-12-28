@@ -1,5 +1,5 @@
 import React from 'react'
-import Buttons from '../Buttons'
+
 
 function PersonalInfo() {
   return (
@@ -24,7 +24,6 @@ function PersonalInfo() {
     placeholder='e.g +1 234 567 890'
     />
 
-    <Buttons />
     </form>
     </div>
   )

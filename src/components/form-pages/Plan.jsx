@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Buttons from '../Buttons'
+
 import Arcade from '../images/icon-arcade.svg'
 import Advanced from '../images/icon-advanced.svg'
 import Pro from '../images/icon-pro.svg'
@@ -59,7 +59,7 @@ const [value, setValue] = useState(0)
     </div>
     
 
-    <Buttons btnClass={'next-step'} name={'Next Step'} />
+
     </form>
 
 

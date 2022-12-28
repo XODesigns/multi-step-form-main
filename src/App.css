@@ -30,9 +30,9 @@
 
 }
 
-button.next-step, button.confirm{
+button.next-step, button.confirm, button.prev-step{
   width:25%;
-  margin-left:74%;
+  /* margin-left:74%; */
   /* margin-top:20%; */
   /* margin-bottom: 5%; */
   background-color: var(--Marine-blue);
@@ -42,10 +42,22 @@ button.next-step, button.confirm{
   color: var(--White);
   font-weight: 500;
   font-family:  'Ubuntu', sans-serif;
+  cursor: pointer;
+}
+
+button.next-step, button.confirm{
+  margin-left:auto !important;
 }
 
 button.confirm{
   background-color: var(--Purplish-blue) !important;
+  cursor: pointer;
+}
+
+button.prev-step{
+  background: none !important;
+  cursor: pointer;
+  color: var(--Cool-gray) !important;
 }
 
 /* Sidebar styling */
@@ -321,9 +333,9 @@ input[type="checkbox"]:checked::after {
 
 }
 
-.links button{
+/* .links button{
   margin: 0 !important;
-}
+} */
 
 .links{
   display: flex;
@@ -332,10 +344,5 @@ input[type="checkbox"]:checked::after {
   margin-top:20%;
 }
 
-.links a{
-  text-decoration: none;
-  color: var(--Cool-gray);
-  font-size: 0.8em;
-  font-weight: 500;
-}
+
 

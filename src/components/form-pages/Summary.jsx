@@ -1,6 +1,4 @@
 import React from 'react'
-import Buttons from '../Buttons'
-import { BrowserRouter, Link } from 'react-router-dom'
 
 function Summary() {
   return (
@@ -53,7 +51,7 @@ function Summary() {
     </div>
 
     <div className='links'>
-    <BrowserRouter> <Link to='#'>Go Back</Link></BrowserRouter>
+
    
 </div>
     

@@ -1,6 +1,5 @@
 import React from 'react'
-import Buttons from '../Buttons'
-import { Link, BrowserRouter } from "react-router-dom";
+
 
 function AddOns() {
   return (
@@ -51,11 +50,6 @@ function AddOns() {
     </div>
     <span>+$2/mo</span>
     </div>
-
-    <div className='links'>
-    <BrowserRouter> <Link to='#'>Go Back</Link></BrowserRouter>
-   
-    <Buttons btnClass={'next-step'} name={'Next Step'} /></div>
     
     </form>
     </div>
