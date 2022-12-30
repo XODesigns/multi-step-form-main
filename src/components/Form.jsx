@@ -14,9 +14,19 @@ function Form() {
     name: '',
     email: '',
     phone: '',
-    Plan: '',
-    addons:'',
+    plan: '',
+    planPrice:'',
+    planDate:'',
+    addonsOnline:'',
+    addonOnlinePrice:'',
+    addonsStorage:'',
+    addonStoragePrice:'',
+    addonsCustom:'',
+    addonCustomPrice:'',
   })
+  const [range, setRange] = useState("0")
+  const [selected, setSelected] = useState(false)
+  
 
   const conditionalComponent = () => {
     switch (pages) {
@@ -24,16 +34,16 @@ function Form() {
         return <PersonalInfo formData={formData} setFormData={setFormData} />
 
         case 1:
-        return <Plan formData={formData} setFormData={setFormData} />
+        return <Plan formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
 
         case 2:
-        return <AddOns formData={formData} setFormData={setFormData} />
+        return <AddOns formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
 
         case 3:
-        return <Summary formData={formData} setFormData={setFormData} />
+        return <Summary formData={formData} setFormData={setFormData} pages={pages} setPages={pages} />
 
         case 4:
-        return <ThankYou formData={formData} setFormData={setFormData} />
+        return <ThankYou />
     
       default:
         return <PersonalInfo formData={formData} setFormData={setFormData} />
@@ -48,6 +58,7 @@ function Form() {
     setPages(pages - 1)
   }
 
+
   return (
   <>
   <Sidebar />
@@ -59,19 +70,19 @@ function Form() {
       <div className='links'>
 
       {
-        pages > 0 && <Buttons 
+        pages > 0 && pages < 4 && <Buttons 
       btnClass={'prev-step'} 
       name={ 'Go Back'} 
       click={handleSubmitToo} 
-      />
+      /> 
       }
       
-
-      <Buttons 
-      btnClass={'next-step'} 
-      name={ pages >= 0 && pages <= 2 ? 'Next Step' : 'Confirm' } 
-      click={handleSubmit} 
-      />
+      {pages === 4 ? null : <Buttons 
+        btnClass={'next-step'} 
+        name={ pages >= 0 && pages <= 2 ? 'Next Step' : 'Confirm' } 
+        click={handleSubmit} 
+        />}
+      
 
       </div>
     
