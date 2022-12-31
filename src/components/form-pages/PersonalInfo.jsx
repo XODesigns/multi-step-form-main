@@ -30,6 +30,7 @@ function PersonalInfo({formData, setFormData}) {
       })
     }}
     value={formData.name}
+    required
     />
 
     <label>Email</label>
@@ -46,6 +47,7 @@ function PersonalInfo({formData, setFormData}) {
 
     <label>Phone Number</label>
     <input
+    type='tel'
     placeholder='e.g +1 234 567 890'
     onChange={(evt) => {
       setFormData({

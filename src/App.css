@@ -78,7 +78,19 @@ button.prev-step{
   border-radius: 50px;
   width:30px;
   height: 30px;
+  display: flex;
+justify-content: center;
+align-items: center;
+}
 
+.form-sidebar-active{
+  background-color: var(--Light-blue);
+  color: var(--Marine-blue);
+  border: 1px solid var(--Light-blue) !important;
+  font-weight: 500;
+  border-radius: 50px;
+  width:30px;
+  height: 30px;
   display: flex;
 justify-content: center;
 align-items: center;

@@ -51,6 +51,30 @@ function Form() {
   }
 
   const handleSubmit = () => {
+    
+    if(pages === 0){
+      if (formData.name === '' || formData.name.length <= 1){
+       return alert('Please enter your name')
+      } else if (formData.email === '' || !formData.email.includes('@')){
+        return alert('Please enter a valid email')
+      } else if (formData.phone === '' || formData.name.length <= 1){
+        return alert('This field is required')
+      } else {
+        setPages(pages + 1)
+      }
+    } else if (pages === 1){
+      if(formData.plan === ''){
+        return alert('Please select your plan')
+      } else {
+        setPages(pages + 1)
+      }
+    } else if (pages === 2){
+      if(formData.addonsOnline === '' || formData.addonsStorage === '' || formData.addonsCustom === ''){
+        return alert('Please pick add-ons')
+      }else {
+        setPages(pages + 1)
+      }
+    } else 
     setPages(pages + 1)
   }
 
@@ -61,7 +85,7 @@ function Form() {
 
   return (
   <>
-  <Sidebar />
+  <Sidebar pages={pages} setPages={pages} />
 
   <div className='form-info'>
       {conditionalComponent()}
@@ -78,7 +102,7 @@ function Form() {
       }
       
       {pages === 4 ? null : <Buttons 
-        btnClass={'next-step'} 
+        btnClass={ pages >= 0 && pages <= 2 ? 'next-step' : 'confirm'} 
         name={ pages >= 0 && pages <= 2 ? 'Next Step' : 'Confirm' } 
         click={handleSubmit} 
         />}
