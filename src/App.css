@@ -60,6 +60,12 @@ button.prev-step{
   color: var(--Cool-gray) !important;
 }
 
+/* input focus outline */
+
+input:focus{
+  outline:none;
+}
+
 /* Sidebar styling */
 
 .form-sidebar{
@@ -391,6 +397,14 @@ input[type="checkbox"]:checked::after {
 
 }
 
+.error-personal-info{
+  border: 1px solid var(--Strawberry-red) !important;
+  border-radius: 8px !important;
+  /* padding:3%;
+  color: var(--Cool-gray);
+  font-weight: 700; */
+}
+
 /* .links button{
   margin: 0 !important;
 } */
@@ -400,6 +414,19 @@ input[type="checkbox"]:checked::after {
   justify-content: space-between;
   align-items: center;
   margin-top:20%;
+}
+
+/* personal info styling */
+
+.personal-form label{
+  display:flex;
+  justify-content: space-between;
+  font-weight: 400;
+}
+
+.personal-form label span{
+  color: var(--Strawberry-red);
+  font-weight: 700;
 }
 
 /* summary page styling */

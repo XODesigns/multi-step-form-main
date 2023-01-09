@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function PersonalInfo({formData, setFormData}) {
+function PersonalInfo({formData, setFormData, error, setError}) {
 
 
   // const handleChange = (evt) =>{
@@ -20,7 +20,7 @@ function PersonalInfo({formData, setFormData}) {
     
 
     <form className='personal-form'>
-    <label>Name</label>
+    <label>Name <span></span></label>
     <input
     placeholder='e.g Stephen King'
     onChange={(evt) => {
@@ -33,7 +33,7 @@ function PersonalInfo({formData, setFormData}) {
     required
     />
 
-    <label>Email</label>
+    <label>Email <span></span></label>
     <input
     placeholder='e.g stephenking@lorem.com'
     onChange={(evt) => {
@@ -45,7 +45,7 @@ function PersonalInfo({formData, setFormData}) {
     value={formData.email}
     />
 
-    <label>Phone Number</label>
+    <label>Phone Number <span></span></label>
     <input
     type='tel'
     placeholder='e.g +1 234 567 890'
@@ -54,6 +54,7 @@ function PersonalInfo({formData, setFormData}) {
         ...formData,
         phone: evt.target.value,
       })
+      handlePersonalInfoErrors
     }}
     value={formData.phone}
     />
