@@ -27,7 +27,6 @@ function Form() {
     addonCustomPrice:'',
   })
 
-  const [error, setError] = useState("")
   const [range, setRange] = useState("0")
   const [selected, setSelected] = useState(false)
   
@@ -35,56 +34,57 @@ function Form() {
   const conditionalComponent = () => {
     switch (pages) {
       case 0:
-        return <PersonalInfo formData={formData} setFormData={setFormData} error={error} setError={setError} handleSubmit={handleSubmit} />
+        return <PersonalInfo formData={formData} setFormData={setFormData} />
 
         case 1:
-        return <Plan formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} setError={setError}  />
+        return <Plan formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
 
         case 2:
-        return <AddOns formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} setError={setError}  />
+        return <AddOns formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
 
         case 3:
-        return <Summary formData={formData} setFormData={setFormData} pages={pages} setPages={pages} setError={setError} />
+        return <Summary formData={formData} setFormData={setFormData} pages={pages} setPages={pages} />
 
         case 4:
         return <ThankYou />
     
       default:
-        return <PersonalInfo formData={formData} setFormData={setFormData} error={error} setError={setError}  />
+        return <PersonalInfo formData={formData} setFormData={setFormData} />
     }
   }
 
   const handleSubmit = () => {
     
-    // if(pages === 0){
-    //   if (formData.name === '' || formData.name.length <= 1){
-    //    setError(error)
-    //   } else if (formData.email === '' || !formData.email.includes('@')){
-    //     setError(error)
-    //   } else if (formData.phone === '' || formData.name.length <= 1){
-    //     setError(error)
-    //   } else {
-    //     setPages(pages + 1)
-    //   }
-    // } else if (pages === 1){
-    //   if(formData.plan === ''){
-    //    setError(error)
-    //   } else {
-    //     setPages(pages + 1)
-    //   }
-    // } else if (pages === 2){
-    //   if(formData.addonsOnline === '' || formData.addonsStorage === '' || formData.addonsCustom === ''){
-    //     setError(error)
-    //   }else {
-    //     setPages(pages + 1)
-    //   }
-    // } else 
+    if(pages === 0){
+      if (formData.name === '' || formData.name.length <= 1){
+       return alert('Please enter your name')
+      } else if (formData.email === '' || !formData.email.includes('@')){
+        return alert('Please enter a valid email')
+      } else if (formData.phone === '' || formData.name.length <= 1){
+        return alert('This field is required')
+      } else {
+        setPages(pages + 1)
+      }
+    } else if (pages === 1){
+      if(formData.plan === ''){
+        return alert('Please select your plan')
+      } else {
+        setPages(pages + 1)
+      }
+    } else if (pages === 2){
+      if(!formData.addonsOnline && !formData.addonOnlinePrice || !formData.addonsStorage && !formData.addonStoragePrice || !formData.addonsCustom && !formData.addonCustomPrice){
+        return alert('Please pick add-ons')
+      }else {
+        setPages(pages + 1)
+      }
+    } else 
     setPages(pages + 1)
   }
 
   const handleSubmitToo = () => {
     setPages(pages - 1)
   }
+
 
 
   return (

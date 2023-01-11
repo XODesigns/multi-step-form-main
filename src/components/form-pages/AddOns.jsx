@@ -28,7 +28,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
      addonsOnline: evt.target.value,
      addonOnlinePrice: evt.target.name,
     })
-    setSelected(!selected)
+    {evt.target.checked && setSelected(!selected)}
   }}
 
     />
@@ -57,7 +57,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
      addonsStorage: evt.target.value,
      addonStoragePrice: evt.target.name,
     })
-    setSelected(!selected)
+    {evt.target.checked && setSelected(!selected)}
   }}
     />
     <div className='addon-labels'>
@@ -81,7 +81,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
      addonsCustom: evt.target.value,
      addonCustomPrice: evt.target.name,
     })
-   setSelected(!selected)
+    {evt.target.checked && setSelected(!selected)}
   }}
     />
     <div className='addon-labels'>

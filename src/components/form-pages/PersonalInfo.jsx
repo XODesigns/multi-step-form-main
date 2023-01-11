@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function PersonalInfo({formData, setFormData, error, setError}) {
+function PersonalInfo({formData, setFormData}) {
 
 
   // const handleChange = (evt) =>{
@@ -54,7 +54,6 @@ function PersonalInfo({formData, setFormData, error, setError}) {
         ...formData,
         phone: evt.target.value,
       })
-      handlePersonalInfoErrors
     }}
     value={formData.phone}
     />
