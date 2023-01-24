@@ -1,9 +1,11 @@
-import React from 'react'
+import {useState} from 'react'
 import Buttons from '../Buttons'
 
 function AddOns({formData, setFormData, range, setRange, selected, setSelected}) {
 
-
+const [isOnline, SetIsOnline] = useState(false)
+const [isLarger, SetIsLarger] = useState(false)
+const [isCustom, SetIsCustom] = useState(false)
 
   return (
     <div>
@@ -15,7 +17,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
 
     <form className='add-ons-form'>
     
-    <div className={selected ? 'add-on-checkbox-checked' : 'add-on-checkbox'}>
+    <div className={isOnline ? 'add-on-checkbox-checked' : 'add-on-checkbox'}>
     <div className='add-on-input'>
 
     <input
@@ -28,7 +30,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
      addonsOnline: evt.target.value,
      addonOnlinePrice: evt.target.name,
     })
-    {evt.target.checked && setSelected(!selected)}
+    SetIsOnline(!isOnline)
   }}
 
     />
@@ -44,7 +46,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
 
     </div>
 
-    <div className={selected ? 'add-on-checkbox-checked' : 'add-on-checkbox'}>
+    <div className={isLarger ? 'add-on-checkbox-checked' : 'add-on-checkbox'}>
     <div className='add-on-input'>
 
     <input
@@ -57,7 +59,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
      addonsStorage: evt.target.value,
      addonStoragePrice: evt.target.name,
     })
-    {evt.target.checked && setSelected(!selected)}
+    SetIsLarger(!isLarger)
   }}
     />
     <div className='addon-labels'>
@@ -68,7 +70,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
     <span>{range === "0" ? `+$${Number(2)}/mo` : "+$20/yr"}</span>
     </div>
 
-    <b className={selected ? 'add-on-checkbox-checked' : 'add-on-checkbox last-child'}>
+    <b className={isCustom ? 'add-on-checkbox-checked' : 'add-on-checkbox'}>
     <div className='add-on-input'>
 
     <input
@@ -81,7 +83,7 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
      addonsCustom: evt.target.value,
      addonCustomPrice: evt.target.name,
     })
-    {evt.target.checked && setSelected(!selected)}
+    SetIsCustom(!isCustom)
   }}
     />
     <div className='addon-labels'>

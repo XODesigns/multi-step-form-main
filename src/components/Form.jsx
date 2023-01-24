@@ -85,11 +85,11 @@ function Form() {
 
   const conditionalComponent = () => {
     switch (pages) {
-      case 1:
+      case 0:
         return <PersonalInfo handleSubmit={handleSubmit} errors={errors} touched={touched} handleBlur={handleBlur} values={values} handleChange={handleChange} />
 
-        case 0:
-        return <Plan PersonalInfo handleSubmit={handleSubmit} errors={errors} touched={touched} handleBlur={handleBlur} values={values} handleChange={handleChange} />
+        case 1:
+        return <Plan formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected}  />
 
         case 2:
         return <AddOns formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
@@ -101,23 +101,13 @@ function Form() {
         return <ThankYou />
     
       default:
-        return <Plan />
+        return <PersonalInfo />
     }
   }
 
   const handleBtnSubmit = () => {
     
-    if(pages === 0){
-      if (formData.name === '' || formData.name.length <= 1){
-       return alert('Please enter your name')
-      } else if (formData.email === '' || !formData.email.includes('@')){
-        return alert('Please enter a valid email')
-      } else if (formData.phone === '' || formData.name.length <= 1){
-        return alert('This field is required')
-      } else {
-        setPages(pages + 1)
-      }
-    } else if (pages === 1){
+    if (pages === 1){
       if(formData.plan === ''){
         return alert('Please select your plan')
       } else {
@@ -157,10 +147,10 @@ function Form() {
       /> 
       }
       
-    {pages === 3 ? <Buttons 
-        btnClass={'confirm'} 
-        name={'Confirm' } 
-        click={handleSubmit} 
+    {pages >= 1 && pages < 4 ? <Buttons 
+        btnClass={ pages >= 1  && pages < 4 ? 'next-step' : 'confirm'} 
+        name={ pages >= 1  && pages < 4 ? 'Next Step' : 'Confirm' } 
+        click={handleBtnSubmit} 
         /> : null}
       
 
