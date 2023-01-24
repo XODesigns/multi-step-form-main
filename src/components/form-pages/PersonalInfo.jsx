@@ -1,17 +1,10 @@
 import React from 'react'
+import Buttons from '../Buttons'
 
 
-function PersonalInfo({formData, setFormData}) {
+function PersonalInfo({onSubmit, handleSubmit, errors, touched, handleBlur, values, handleChange}) {
 
 
-  // const handleChange = (evt) =>{
-  //   setFormData({
-  //     ...formData,
-  //     name:evt.target.value,
-  //     email:evt.target.value,
-  //     phone:evt.target.value,
-  //   })
-  // }
 
   return (
     <div className='personal-info'>
@@ -19,43 +12,36 @@ function PersonalInfo({formData, setFormData}) {
     <h2>Please provide your name, email address, and phone number.</h2>
     
 
-    <form className='personal-form'>
-    <label>Name <span></span></label>
+    <form className='personal-form' onSubmit={handleSubmit}>
+    <label>Name <span>{errors.name && touched.name ? errors.name : null}</span></label>
     <input
     placeholder='e.g Stephen King'
-    onChange={(evt) => {
-      setFormData({
-        ...formData,
-        name: evt.target.value,
-      })
-    }}
-    value={formData.name}
-    required
+   onChange={handleChange}
+   value={values.name}
+   name="name"
     />
 
-    <label>Email <span></span></label>
+    <label>Email <span>{errors.email && touched.email ? errors.email : null}</span></label>
     <input
     placeholder='e.g stephenking@lorem.com'
-    onChange={(evt) => {
-      setFormData({
-        ...formData,
-        email: evt.target.value,
-      })
-    }}
-    value={formData.email}
+    onChange={handleChange}
+    value={values.email}
+    name="email"
     />
 
-    <label>Phone Number <span></span></label>
+    <label>Phone Number <span>{errors.phone && touched.phone ? errors.phone : null}</span></label>
     <input
     type='tel'
     placeholder='e.g +1 234 567 890'
-    onChange={(evt) => {
-      setFormData({
-        ...formData,
-        phone: evt.target.value,
-      })
-    }}
-    value={formData.phone}
+    onChange={handleChange}
+    value={values.phone}
+    name="phone"
+    />
+
+    <Buttons 
+    btnClass={'next-step'} 
+    name={'Next Step'} 
+    // click={handleSubmit} 
     />
 
     </form>

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Arcade from '../images/icon-arcade.svg'
 import Advanced from '../images/icon-advanced.svg'
 import Pro from '../images/icon-pro.svg'
+import Buttons from '../Buttons'
 
 
 function Plan({formData, setFormData, range, setRange, selected, setSelected}) {
@@ -114,7 +115,11 @@ const handleClick = (evt) =>{
     
     </div>
     
-
+    <Buttons 
+    btnClass={'next-step'} 
+    name={'Next Step'} 
+    // click={handleSubmit} 
+    />
 
     </form>
 

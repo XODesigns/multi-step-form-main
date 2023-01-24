@@ -6,7 +6,25 @@ import Plan from './form-pages/Plan'
 import Summary from './form-pages/Summary'
 import ThankYou from './form-pages/ThankYou'
 import Sidebar from './Sidebar'
-import { Formik } from 'formik';
+import { useFormik } from 'formik';
+import * as Yup from 'yup'
+import 'yup-phone'
+
+
+
+const FormSchema = Yup.object().shape({
+  name: Yup.string()
+  .matches(/^[A-Za-z]*$/, 'Name should contain only letters')
+  .min(2, 'Too Short!')
+  .max(50, 'Too Long!')
+  .required('Required'),
+  email: Yup.string()
+  .email('Invalid email')
+  .required('Required'),
+  phone: Yup.string()
+  .matches(/^\+[0-9]*$/)
+  .required('Required')
+})
 
 
 function Form() {
@@ -29,15 +47,49 @@ function Form() {
 
   const [range, setRange] = useState("0")
   const [selected, setSelected] = useState(false)
+
+
+
+  const {
+    values,
+    handleSubmit,
+    touched,
+    errors,
+    handleChange,
+    isSubmitting,
+    handleBlur,
+  } = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      phone: '',
+      plan: '',
+      planPrice:'',
+      planDate:'',
+      addonsOnline:'',
+      addonOnlinePrice:'',
+      addonsStorage:'',
+      addonStoragePrice:'',
+      addonsCustom:'',
+      addonCustomPrice:'',
+    },
+
+    validationSchema: FormSchema,
+
+    onSubmit(){
+      setPages(pages + 1)
+      console.log()
+    }
+  })
   
 
   const conditionalComponent = () => {
     switch (pages) {
-      case 0:
-        return <PersonalInfo formData={formData} setFormData={setFormData} />
+      case 1:
+        return <PersonalInfo handleSubmit={handleSubmit} errors={errors} touched={touched} handleBlur={handleBlur} values={values} handleChange={handleChange} />
 
-        case 1:
-        return <Plan formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
+        case 0:
+        return <Plan PersonalInfo handleSubmit={handleSubmit} errors={errors} touched={touched} handleBlur={handleBlur} values={values} handleChange={handleChange} />
 
         case 2:
         return <AddOns formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
@@ -49,11 +101,11 @@ function Form() {
         return <ThankYou />
     
       default:
-        return <PersonalInfo formData={formData} setFormData={setFormData} />
+        return <Plan />
     }
   }
 
-  const handleSubmit = () => {
+  const handleBtnSubmit = () => {
     
     if(pages === 0){
       if (formData.name === '' || formData.name.length <= 1){
@@ -105,11 +157,11 @@ function Form() {
       /> 
       }
       
-      {pages === 4 ? null : <Buttons 
-        btnClass={ pages >= 0 && pages <= 2 ? 'next-step' : 'confirm'} 
-        name={ pages >= 0 && pages <= 2 ? 'Next Step' : 'Confirm' } 
+    {pages === 3 ? <Buttons 
+        btnClass={'confirm'} 
+        name={'Confirm' } 
         click={handleSubmit} 
-        />}
+        /> : null}
       
 
       </div>

@@ -45,9 +45,13 @@ button.next-step, button.confirm, button.prev-step{
   cursor: pointer;
 }
 
-button.next-step, button.confirm{
+
+
+button.next-step, button.confirm, button.next-stop{
   margin-left:auto !important;
+  /* margin-top:22.6%; */
 }
+
 
 button.confirm{
   background-color: var(--Purplish-blue) !important;
@@ -480,6 +484,8 @@ color:var(--Cool-gray)
   color: var(--Cool-gray);
   font-size: 14px;
 }
+
+
 
 
 

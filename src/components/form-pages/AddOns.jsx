@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Buttons from '../Buttons'
 
 function AddOns({formData, setFormData, range, setRange, selected, setSelected}) {
 
@@ -92,6 +92,12 @@ function AddOns({formData, setFormData, range, setRange, selected, setSelected})
     <span>{range === "0" ? "+$2/mo" : "+$20/yr"}</span>
     </b>
     
+
+    <Buttons 
+    btnClass={'next-step'} 
+    name={'Next Step'} 
+    // click={handleSubmit} 
+    />
     </form>
     </div>
     
