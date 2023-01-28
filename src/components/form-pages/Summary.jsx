@@ -1,18 +1,20 @@
 import React from 'react'
 
-function Summary({formData, pages, setPages}) {
+function Summary({formData, pages, setPages, range, setRange}) {
+
+  
 
 // Extracting numbers and calculate the total at the end
-  const planPrice = formData.planPrice.match(/[0-9]/)
-  const onlinePrice = formData.addonOnlinePrice.match(/[0-9]/)
-  const storagePrice = formData.addonStoragePrice.match(/[0-9]/)
-  const customPrice = formData.addonCustomPrice.match(/[0-9]/)
+  const planPrice = formData.planPrice.match(/\d+/)
+  const onlinePrice = formData.addonOnlinePrice.match(/\d+/)
+  const storagePrice = formData.addonStoragePrice.match(/\d+/)
+  const customPrice = formData.addonCustomPrice.match(/\d+/)
   
 //calculate the price
   const total = Number(planPrice) + Number(onlinePrice) + Number(storagePrice) + Number(customPrice)
 
-  const date = formData.planPrice === "$9/mo" ? "/mo" : "/yr"
-  console.log(Number(total))
+  const date = formData.planPrice === "$9/mo" || "$12/mo" || "$15/mo" ? "/mo" : "/yr" 
+  console.log((`${storagePrice} yes`))
 
   return (
     <div>
@@ -26,8 +28,8 @@ function Summary({formData, pages, setPages}) {
    
     <div className='plan-summary'>
     <div className='plan-summary-head'>
-    <h3>{formData.plan}({formData.planPrice === "$9/mo" ? "Monthly" : "Yearly"})</h3>
-    <span><a href='#'>Change</a></span>
+    <h3>{formData.plan}({range === '0' ? "Monthly" : "Yearly"})</h3>
+    <span className="change-link" onClick={setRange(!range)}>Change</span>
     </div>
     <p>{formData.planPrice}</p>
     </div>
@@ -53,7 +55,7 @@ function Summary({formData, pages, setPages}) {
     </div>
 
     <div className='total'>
-    <p>Total (per month)</p>
+    <p>Total (per {range === '0' ? "month" : "year"})</p>
     <span>{`+$${total}${date}`}</span>
     </div>
     

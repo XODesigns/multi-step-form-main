@@ -485,7 +485,9 @@ color:var(--Cool-gray)
   font-size: 14px;
 }
 
-
-
+.change-link{
+  text-decoration:underline ;
+  cursor: pointer;
+}
 
 

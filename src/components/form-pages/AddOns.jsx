@@ -94,12 +94,6 @@ const [isCustom, SetIsCustom] = useState(false)
     <span>{range === "0" ? "+$2/mo" : "+$20/yr"}</span>
     </b>
     
-
-    <Buttons 
-    btnClass={'next-step'} 
-    name={'Next Step'} 
-    // click={handleSubmit} 
-    />
     </form>
     </div>
     

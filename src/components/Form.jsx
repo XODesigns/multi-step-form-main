@@ -22,8 +22,10 @@ const FormSchema = Yup.object().shape({
   .email('Invalid email')
   .required('Required'),
   phone: Yup.string()
-  .matches(/^\+[0-9]*$/)
+  .matches(/^\+[0-9]*$/, 'Match example +1111111111')
   .required('Required')
+  .min(2, 'Too Short!')
+  .max(16, 'To Long')
 })
 
 
@@ -95,7 +97,7 @@ function Form() {
         return <AddOns formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
 
         case 3:
-        return <Summary formData={formData} setFormData={setFormData} pages={pages} setPages={pages} />
+        return <Summary formData={formData} setFormData={setFormData} pages={pages} setPages={pages} range={range} setRange={setRange} />
 
         case 4:
         return <ThankYou />
@@ -114,7 +116,7 @@ function Form() {
         setPages(pages + 1)
       }
     } else if (pages === 2){
-      if(!formData.addonsOnline && !formData.addonOnlinePrice || !formData.addonsStorage && !formData.addonStoragePrice || !formData.addonsCustom && !formData.addonCustomPrice){
+      if(formData.addonsOnline === '' || !formData.addonsStorage === '' || !formData.addonCustomPrice === ''){
         return alert('Please pick add-ons')
       }else {
         setPages(pages + 1)
