@@ -14,7 +14,17 @@ function Summary({formData, pages, setPages, range, setRange}) {
   const total = Number(planPrice) + Number(onlinePrice) + Number(storagePrice) + Number(customPrice)
 
   const date = formData.planPrice === "$9/mo" || "$12/mo" || "$15/mo" ? "/mo" : "/yr" 
-  console.log((`${storagePrice} yes`))
+  console.log((`${range} yes`))
+
+  const setRanges = () =>{
+
+    if(range === "0"){
+      setRange("1")
+    } else {
+      setRange("0")
+    }
+    
+  }
 
   return (
     <div>
@@ -29,7 +39,7 @@ function Summary({formData, pages, setPages, range, setRange}) {
     <div className='plan-summary'>
     <div className='plan-summary-head'>
     <h3>{formData.plan}({range === '0' ? "Monthly" : "Yearly"})</h3>
-    <span className="change-link" onClick={setRange(!range)}>Change</span>
+    <span className="change-link" onClick={setRanges}>Change</span>
     </div>
     <p>{formData.planPrice}</p>
     </div>

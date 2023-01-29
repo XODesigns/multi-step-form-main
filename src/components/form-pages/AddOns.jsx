@@ -7,6 +7,7 @@ const [isOnline, SetIsOnline] = useState(false)
 const [isLarger, SetIsLarger] = useState(false)
 const [isCustom, SetIsCustom] = useState(false)
 
+
   return (
     <div>
     
@@ -52,7 +53,7 @@ const [isCustom, SetIsCustom] = useState(false)
     <input
    type='checkbox'
    value="Larger storage"
-   name={range === "0" ? `+$${Number(2)}/mo` : "+$20/yr"}
+   name={range === "0" ? "+$2/mo" : "+$20/yr"}
    onChange={(evt) => {
     setFormData({
       ...formData,
@@ -67,7 +68,7 @@ const [isCustom, SetIsCustom] = useState(false)
     <p>Extra 1TB of cloud save</p>
     </div>
     </div>
-    <span>{range === "0" ? `+$${Number(2)}/mo` : "+$20/yr"}</span>
+    <span>{range === "0" ? "+$2/mo" : "+$20/yr"}</span>
     </div>
 
     <b className={isCustom ? 'add-on-checkbox-checked' : 'add-on-checkbox'}>
@@ -76,7 +77,7 @@ const [isCustom, SetIsCustom] = useState(false)
     <input
    type='checkbox'
    value="Customizable profile"
-   name={range === "0" ? `+$ ${Number(2)}/mo` : "+$20/yr"}
+   name={range === "0" ? "+$2/mo" : "+$20/yr"}
    onChange={(evt) => {
     setFormData({
       ...formData,

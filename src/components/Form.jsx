@@ -116,7 +116,7 @@ function Form() {
         setPages(pages + 1)
       }
     } else if (pages === 2){
-      if(formData.addonsOnline === '' || !formData.addonsStorage === '' || !formData.addonCustomPrice === ''){
+      if(formData.addonsOnline === '' || formData.addonsStorage === '' || formData.addonCustomPrice === ''){
         return alert('Please pick add-ons')
       }else {
         setPages(pages + 1)
@@ -128,6 +128,7 @@ function Form() {
   const handleSubmitToo = () => {
     setPages(pages - 1)
   }
+  
 
 
 
