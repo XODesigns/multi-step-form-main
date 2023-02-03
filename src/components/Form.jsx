@@ -49,7 +49,7 @@ function Form() {
 
   const [range, setRange] = useState("0")
   const [selected, setSelected] = useState(false)
-
+  const [rangeBool, setRangeBool] = useState(false)
 
 
   const {
@@ -91,13 +91,13 @@ function Form() {
         return <PersonalInfo handleSubmit={handleSubmit} errors={errors} touched={touched} handleBlur={handleBlur} values={values} handleChange={handleChange} />
 
         case 1:
-        return <Plan formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected}  />
+        return <Plan formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} rangeBool={rangeBool} setRangeBool={setRangeBool} />
 
         case 2:
-        return <AddOns formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} />
+        return <AddOns formData={formData} setFormData={setFormData} range={range} setRange={setRange} selected={selected} setSelected={setSelected} rangeBool={rangeBool} setRangeBool={setRangeBool} />
 
         case 3:
-        return <Summary formData={formData} setFormData={setFormData} pages={pages} setPages={pages} range={range} setRange={setRange} />
+        return <Summary formData={formData} setFormData={setFormData} pages={pages} setPages={pages} range={range} setRange={setRange} rangeBool={rangeBool} setRangeBool={setRangeBool} />
 
         case 4:
         return <ThankYou />
@@ -129,7 +129,6 @@ function Form() {
     setPages(pages - 1)
   }
   
-
 
 
   return (

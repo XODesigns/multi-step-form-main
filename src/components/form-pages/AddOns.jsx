@@ -1,7 +1,8 @@
 import {useState} from 'react'
 import Buttons from '../Buttons'
+import data from '../../data'
 
-function AddOns({formData, setFormData, range, setRange, selected, setSelected}) {
+function AddOns({formData, setFormData, range, setRange, selected, setSelected, setRangeBool, rangeBool}) {
 
 const [isOnline, SetIsOnline] = useState(false)
 const [isLarger, SetIsLarger] = useState(false)
@@ -24,7 +25,7 @@ const [isCustom, SetIsCustom] = useState(false)
     <input
    type='checkbox'
    value="Online service"
-   name={range === "0" ? "+$1/mo" : "+$10/yr"}
+   name={range === "0" ? data.map(data => data.onlneSrvceMnth) : data.map(data => data.onlneSrvceYr)}
    onChange={(evt) => {
     setFormData({
       ...formData,
@@ -43,7 +44,7 @@ const [isCustom, SetIsCustom] = useState(false)
 
     </div>
 
-    <span>{range === "0" ? "+$1/mo" : "+$10/yr"}</span>
+    <span>{range === "0" ? data.map(data => data.onlneSrvceMnth) : data.map(data => data.onlneSrvceYr)}</span>
 
     </div>
 
@@ -53,7 +54,7 @@ const [isCustom, SetIsCustom] = useState(false)
     <input
    type='checkbox'
    value="Larger storage"
-   name={range === "0" ? "+$2/mo" : "+$20/yr"}
+   name={range === "0" ? data.map(data => data.lrgeStrgeMnth) : data.map(data => data.lrgeStrgeYr)}
    onChange={(evt) => {
     setFormData({
       ...formData,
@@ -68,7 +69,7 @@ const [isCustom, SetIsCustom] = useState(false)
     <p>Extra 1TB of cloud save</p>
     </div>
     </div>
-    <span>{range === "0" ? "+$2/mo" : "+$20/yr"}</span>
+    <span>{range === "0" ? data.map(data => data.lrgeStrgeMnth) : data.map(data => data.lrgeStrgeYr)}</span>
     </div>
 
     <b className={isCustom ? 'add-on-checkbox-checked' : 'add-on-checkbox'}>
@@ -77,7 +78,7 @@ const [isCustom, SetIsCustom] = useState(false)
     <input
    type='checkbox'
    value="Customizable profile"
-   name={range === "0" ? "+$2/mo" : "+$20/yr"}
+   name={range === "0" ? data.map(data => data.cstmPrfleMnth) : data.map(data => data.cstmPrfleYr)}
    onChange={(evt) => {
     setFormData({
       ...formData,
@@ -92,7 +93,7 @@ const [isCustom, SetIsCustom] = useState(false)
     <p>Custom theme on your profile</p>
     </div>
     </div>
-    <span>{range === "0" ? "+$2/mo" : "+$20/yr"}</span>
+    <span>{range === "0" ? data.map(data => data.cstmPrfleMnth) : data.map(data => data.cstmPrfleYr)}</span>
     </b>
     
     </form>

@@ -1,6 +1,7 @@
 import React from 'react'
+import data from '../../data'
 
-function Summary({formData, pages, setPages, range, setRange}) {
+function Summary({formData, pages, setPages, range, setRange, setRangeBool, rangeBool}) {
 
   
 

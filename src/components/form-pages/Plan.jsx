@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import Arcade from '../images/icon-arcade.svg'
 import Advanced from '../images/icon-advanced.svg'
 import Pro from '../images/icon-pro.svg'
+import data from '../../data'
 
 
-function Plan({formData, setFormData, range, setRange, selected, setSelected}) {
+function Plan({formData, setFormData, range, setRange, selected, setSelected, setRangeBool, rangeBool}) {
 
 
 const [price, setPrice] = useState({
@@ -26,26 +27,28 @@ const handleClick = (evt) =>{
 
 
 
+
+
   return (
     <div className='select-plan'>
     
     <h1>Select your plan</h1>
     <h2>You have the option of monthly or yearly billing.</h2>
     
-
+   
     <form className='plan-form'>
     <div className='plan-cards'>
 
     <button 
     type='button'
     className='plan-card'
-    value={range === "0" ? price.arcade = `$${Number(9)}/mo` : price.arcade = "$90/yr"}
+    value={range === "0" ? price.arcade = data.map(data => data.prceArcdeMnth) : price.arcade = data.map(data => data.prceArcdeYr)}
     name="Arcade"
     onClick={handleClick}
     >
     <img src={Arcade} />
     <h3>Arcade</h3>
-    <p>{range === "0" ? price.arcade = `$${Number(9)}/mo` : price.arcade = "$90/yr"}
+    <p>{range === "0" ? price.arcade = data.map(data => data.prceArcdeMnth) : price.arcade = data.map(data => data.prceArcdeYr)}
     </p>
     <span>{range === "1" && "2 months free"}</span>
     </button>
@@ -53,13 +56,13 @@ const handleClick = (evt) =>{
     <button 
     type='button'
     className='plan-card'
-    value={range === "0" ? price.arcade =`$${Number(12)}/mo` : price.arcade = "$120/yr"}
+    value={range === "0" ? price.arcade = data.map(data => data.prceAdvncdMnth) : price.arcade = data.map(data => data.prceAdvncdYr)}
     name="Advanced"
     onClick={handleClick}
     >
     <img src={Advanced} />
     <h3>Advanced</h3>
-    <p>{range === "0" ? price.arcade =`$${Number(12)}/mo` : price.arcade = "$120/yr"}
+    <p>{range === "0" ? price.arcade = data.map(data => data.prceAdvncdMnth) : price.arcade = data.map(data => data.prceAdvncdYr)}
     </p>
     <span>{range === "1" && "2 months free"}</span>
     </button>
@@ -68,13 +71,13 @@ const handleClick = (evt) =>{
     <button 
     type='button'
     className='plan-card'
-    value={range === "0" ? price.arcade = `$${Number(15)}/mo` : price.arcade = "$150/yr"}
+    value={range === "0" ? price.arcade = data.map(data => data.prceProMnth) : price.arcade = data.map(data => data.prceProYr)}
     name="Pro"
     onClick={handleClick}
     >
     <img src={Pro} />
     <h3>Pro</h3>
-    <p>{range === "0" ? price.arcade = `$${Number(15)}/mo` : price.arcade = "$150/yr"}
+    <p>{range === "0" ? price.arcade = data.map(data => data.prceProMnth) : price.arcade = data.map(data => data.prceProYr)}
     </p>
     <span>{range === "1" && "2 months free"}</span>
     </button>
@@ -104,7 +107,11 @@ const handleClick = (evt) =>{
         })
       }
       setRange(evt.target.value)
-     
+      if(!range){
+        setRangeBool(!rangeBool)
+      } else {
+        setRangeBool(rangeBool)
+      }
     }}
       value={range}
 
