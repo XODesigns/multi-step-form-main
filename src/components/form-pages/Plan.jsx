@@ -15,18 +15,28 @@ const [price, setPrice] = useState({
   pro:'',
 })
 
+const [name, setName] = useState({
+  arcade:'',
+  advanced:'',
+  pro:'',
+})
+
+const [isArcade, setIsArcade] = useState("false")
+const [isAdvanced, setIsAdvcanced] = useState("false")
+const [isPro, setIsPro] = useState("false")
+
+
+
+
 const handleClick = (evt) =>{
-  setSelected(!selected)
+  // setSelected(!selected)
   console.log(evt.target.value)
-  setFormData({
-    ...formData,
-    plan: evt.target.name,
-    planPrice:evt.target.value,
-  })
+  // setFormData({
+  //   ...formData,
+  //   plan: evt.target.name,
+  //   planPrice:evt.target.value,
+  // })
 }
-
-
-
 
 
   return (
@@ -39,48 +49,89 @@ const handleClick = (evt) =>{
     <form className='plan-form'>
     <div className='plan-cards'>
 
-    <button 
-    type='button'
-    className='plan-card'
+    <div
+    // type='button'
+    className={isArcade === "false" ? 'plan-card' : 'plan-card-focus'}
     value={range === "0" ? price.arcade = data.map(data => data.prceArcdeMnth) : price.arcade = data.map(data => data.prceArcdeYr)}
-    name="Arcade"
-    onClick={handleClick}
+    name={name.arcade = "Arcade"}
+    onClick={(evt)=>{
+      setIsArcade("true")
+      setIsAdvcanced("false")
+      setIsPro("false")
+
+      setFormData({
+        ...formData,
+        plan: name.arcade,
+        planPrice:price.arcade,
+      })
+
+      console.log(evt.target.value)
+    }}
+    
     >
     <img src={Arcade} />
     <h3>Arcade</h3>
     <p>{range === "0" ? price.arcade = data.map(data => data.prceArcdeMnth) : price.arcade = data.map(data => data.prceArcdeYr)}
     </p>
     <span>{range === "1" && "2 months free"}</span>
-    </button>
+    </div>
 
-    <button 
-    type='button'
-    className='plan-card'
-    value={range === "0" ? price.arcade = data.map(data => data.prceAdvncdMnth) : price.arcade = data.map(data => data.prceAdvncdYr)}
-    name="Advanced"
-    onClick={handleClick}
+    <div 
+    // type='button'
+    className={isAdvanced === "false"  ? 'plan-card' : 'plan-card-focus'}
+    value={range === "0" ? price.advanced = data.map(data => data.prceAdvncdMnth) : price.arcade = data.map(data => data.prceAdvncdYr)}
+    name={name.advanced = "Advanced"}
+    onClick={(evt)=>{
+      setIsAdvcanced("true")
+      setIsArcade("false")
+      setIsPro("false")
+
+      setFormData({
+        ...formData,
+        plan: name.advanced,
+        planPrice:price.advanced,
+      })
+
+      console.log(price.arcade)
+    }}
+   
     >
     <img src={Advanced} />
     <h3>Advanced</h3>
-    <p>{range === "0" ? price.arcade = data.map(data => data.prceAdvncdMnth) : price.arcade = data.map(data => data.prceAdvncdYr)}
+    <p>{range === "0" ? price.advanced = data.map(data => data.prceAdvncdMnth) : price.arcade = data.map(data => data.prceAdvncdYr)}
     </p>
     <span>{range === "1" && "2 months free"}</span>
-    </button>
+    </div>
 
 
-    <button 
-    type='button'
-    className='plan-card'
-    value={range === "0" ? price.arcade = data.map(data => data.prceProMnth) : price.arcade = data.map(data => data.prceProYr)}
-    name="Pro"
-    onClick={handleClick}
+    <div 
+    // type='button'
+    className={isPro === "false"  ? 'plan-card' : 'plan-card-focus'}
+    value={range === "0" ? price.pro = data.map(data => data.prceProMnth) : price.arcade = data.map(data => data.prceProYr)}
+    name={name.pro = "Pro"}
+    onClick={(evt)=>{
+      setIsPro("true")
+      setIsArcade("false")
+      setIsAdvcanced("false")
+
+      console.log(evt.target.value)
+      setFormData({
+        ...formData,
+        plan: name.pro,
+        planPrice:price.pro,
+      })
+
+      
+    }}
+    onChange={handleClick}
+  
     >
     <img src={Pro} />
     <h3>Pro</h3>
-    <p>{range === "0" ? price.arcade = data.map(data => data.prceProMnth) : price.arcade = data.map(data => data.prceProYr)}
+    <p>{range === "0" ? price.pro = data.map(data => data.prceProMnth) : price.arcade = data.map(data => data.prceProYr)}
     </p>
     <span>{range === "1" && "2 months free"}</span>
-    </button>
+    </div>
 
 
     </div>

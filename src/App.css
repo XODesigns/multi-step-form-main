@@ -205,7 +205,7 @@ align-items: center;
 .plan-card{
   border:1px solid var(--Light-gray);
   background-color: var(--White);
-  width: 30%;
+  width: 25%;
   border-radius: 10px;
   padding: 3%;
   cursor: pointer;
@@ -216,24 +216,30 @@ align-items: center;
   border:1px solid var(--Marine-blue);
 }
 
-.plan-card:focus{
+.plan-card-focus{
   border:1px solid var(--Marine-blue);
+  background-color: var(--White);
+  width: 25%;
+  border-radius: 10px;
+  padding: 3%;
+  cursor: pointer;
+  text-align: left;
 }
 
-.plan-card h3{
+.plan-card h3, .plan-card-focus h3{
   font-size: 1em;
   margin-bottom: 0;
   margin-top: 30%;
 }
 
-.plan-card p{
+.plan-card p, .plan-card-focus p{
   margin-top: 2%;
   margin-bottom: 5%;
   font-size: 0.9em;
   color: var(--Cool-gray);
 }
 
-.plan-card span{
+.plan-card span, .plan-card-focus span{
 font-weight: 700;
 color: var(--Marine-blue);
 font-size: 12px;

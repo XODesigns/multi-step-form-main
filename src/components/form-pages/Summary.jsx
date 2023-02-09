@@ -6,7 +6,7 @@ function Summary({formData, pages, setPages, range, setRange, setRangeBool, rang
   
 
 // Extracting numbers and calculate the total at the end
-  const planPrice = formData.planPrice.match(/\d+/)
+  const planPrice = formData.planPrice.toString().match(/\d+/)
   const onlinePrice = formData.addonOnlinePrice.match(/\d+/)
   const storagePrice = formData.addonStoragePrice.match(/\d+/)
   const customPrice = formData.addonCustomPrice.match(/\d+/)
