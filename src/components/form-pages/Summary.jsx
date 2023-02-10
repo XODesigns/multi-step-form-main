@@ -40,7 +40,7 @@ function Summary({formData, pages, setPages, range, setRange, setRangeBool, rang
     <div className='plan-summary'>
     <div className='plan-summary-head'>
     <h3>{formData.plan}({range === '0' ? "Monthly" : "Yearly"})</h3>
-    <span className="change-link" onClick={setRanges}>Change</span>
+    
     </div>
     <p>{formData.planPrice}</p>
     </div>
