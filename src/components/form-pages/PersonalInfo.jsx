@@ -39,7 +39,7 @@ function PersonalInfo({onSubmit, handleSubmit, errors, touched, handleBlur, valu
     />
 
     <Buttons 
-    btnClass={'next-step'} 
+    btnClass={'next-step-two'} 
     name={'Next Step'} 
     // click={handleSubmit} 
     />

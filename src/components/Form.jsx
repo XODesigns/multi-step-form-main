@@ -22,7 +22,7 @@ const FormSchema = Yup.object().shape({
   .email('Invalid email')
   .required('Required'),
   phone: Yup.string()
-  .matches(/^\+[0-9]*$/, 'Match example +1111111111')
+  .matches(/^\+[0-9 ]*$/, 'Match example +1111111111')
   .required('Required')
   .min(2, 'Too Short!')
   .max(16, 'To Long')

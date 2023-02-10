@@ -27,10 +27,9 @@
   gap:12px;
   padding:12px;
 
-
 }
 
-button.next-step, button.confirm, button.prev-step{
+button.next-step, button.confirm, button.prev-step, button.next-step-two{
   width:25%;
   /* margin-left:74%; */
   /* margin-top:20%; */
@@ -45,11 +44,15 @@ button.next-step, button.confirm, button.prev-step{
   cursor: pointer;
 }
 
+.purple-txt{
+  color:var(--Purplish-blue)
+}
 
 
-button.next-step, button.confirm, button.next-stop{
+
+button.next-step-two{
   margin-left:auto !important;
-  /* margin-top:22.6%; */
+  margin-top:22.6%;
 }
 
 
@@ -497,3 +500,62 @@ color:var(--Cool-gray)
 }
 
 
+@media only screen and (max-width:960px){
+ 
+  .container{
+    width: 100%;
+    display:flex;
+    padding:0;
+    flex-direction: column;
+    background:none;
+    background-image: url('../src/components/images/bg-sidebar-mobile.svg');
+    background-color: var(--Magnolia);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 0;
+  }
+  .form-info{
+    padding:0 2%;
+  }
+
+  .form-sidebar{
+    display: flex;
+    margin:auto;
+    width: 50%;
+    padding:0;
+    background: none;
+  }
+
+  .personal-info, .select-plan{
+    background-color: var(--White);
+    border-radius: 15px;
+    padding: 3% 7%;
+    margin: auto;
+    box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.26);
+    -webkit-box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.26);
+    -moz-box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.26);
+  }
+
+  .plan-cards{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plan-card{
+    width:100%;
+    padding: 0;
+    margin:auto;
+    display: flex;
+  }
+  .plan-card h3{
+    margin-top:0;
+  }
+  .plan-card p{
+    margin:0;
+  }
+
+  .step-text{
+    display: none;
+  }
+
+}

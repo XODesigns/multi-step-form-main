@@ -67,7 +67,7 @@ function Summary({formData, pages, setPages, range, setRange, setRangeBool, rang
 
     <div className='total'>
     <p>Total (per {range === '0' ? "month" : "year"})</p>
-    <span>{`+$${total} ${range === '0' ? "/mo" : "/yr"}`}</span>
+    <span className='purple-txt'>{`+$${total} ${range === '0' ? "/mo" : "/yr"}`}</span>
     </div>
     
     </div>
