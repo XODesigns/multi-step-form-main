@@ -14,7 +14,7 @@ function Summary({formData, pages, setPages, range, setRange, setRangeBool, rang
 //calculate the price
   const total = Number(planPrice) + Number(onlinePrice) + Number(storagePrice) + Number(customPrice)
 
-  const date = formData.planPrice === "$9/mo" || "$12/mo" || "$15/mo" ? "/mo" : "/yr" 
+  // const date = formData.planPrice === "$9/mo" || "$12/mo" || "$15/mo" ? "/mo" : "/yr" 
   console.log((`${range} yes`))
 
   const setRanges = () =>{
@@ -67,7 +67,7 @@ function Summary({formData, pages, setPages, range, setRange, setRangeBool, rang
 
     <div className='total'>
     <p>Total (per {range === '0' ? "month" : "year"})</p>
-    <span>{`+$${total}${date}`}</span>
+    <span>{`+$${total} ${range === '0' ? "/mo" : "/yr"}`}</span>
     </div>
     
     </div>

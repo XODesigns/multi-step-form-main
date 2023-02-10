@@ -52,13 +52,19 @@ const handleClick = (evt) =>{
     <div
     // type='button'
     className={isArcade === "false" ? 'plan-card' : 'plan-card-focus'}
-    value={range === "0" ? price.arcade = data.map(data => data.prceArcdeMnth) : price.arcade = data.map(data => data.prceArcdeYr)}
+    // value={range === "0" ? price.arcade = data.map(data => data.prceArcdeMnth) : price.arcade = data.map(data => data.prceArcdeYr)}
     name={name.arcade = "Arcade"}
     onClick={(evt)=>{
       setIsArcade("true")
       setIsAdvcanced("false")
       setIsPro("false")
 
+      if(range === "0"){
+        price.arcade = data.map(data => data.prceArcdeMnth)
+      } else if(range === "1"){
+        price.arcade = data.map(data => data.prceArcdeYr)
+      }
+      
       setFormData({
         ...formData,
         plan: name.arcade,
@@ -79,13 +85,19 @@ const handleClick = (evt) =>{
     <div 
     // type='button'
     className={isAdvanced === "false"  ? 'plan-card' : 'plan-card-focus'}
-    value={range === "0" ? price.advanced = data.map(data => data.prceAdvncdMnth) : price.arcade = data.map(data => data.prceAdvncdYr)}
+    // value={range === "0" ? price.advanced = data.map(data => data.prceAdvncdMnth) : price.arcade = data.map(data => data.prceAdvncdYr)}
     name={name.advanced = "Advanced"}
     onClick={(evt)=>{
       setIsAdvcanced("true")
       setIsArcade("false")
       setIsPro("false")
 
+      if(range === "0"){
+        price.advanced = data.map(data => data.prceAdvncdMnth)
+      } else if(range === "1"){
+        price.advanced = data.map(data => data.prceAdvncdYr)
+      }
+      
       setFormData({
         ...formData,
         plan: name.advanced,
@@ -107,12 +119,18 @@ const handleClick = (evt) =>{
     <div 
     // type='button'
     className={isPro === "false"  ? 'plan-card' : 'plan-card-focus'}
-    value={range === "0" ? price.pro = data.map(data => data.prceProMnth) : price.arcade = data.map(data => data.prceProYr)}
+    // value={range === "0" ? price.pro = data.map(data => data.prceProMnth) : price.arcade = data.map(data => data.prceProYr)}
     name={name.pro = "Pro"}
     onClick={(evt)=>{
       setIsPro("true")
       setIsArcade("false")
       setIsAdvcanced("false")
+
+      if(range === "0"){
+        price.pro = data.map(data => data.prceProMnth)
+      } else if(range === "1"){
+        price.pro = data.map(data => data.prceProYr)
+      }
 
       console.log(evt.target.value)
       setFormData({
