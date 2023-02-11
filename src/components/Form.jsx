@@ -139,7 +139,7 @@ function Form() {
       {conditionalComponent()}
 
 
-      <div className='links'>
+      <div className={pages === 2 || pages === 3 ? 'links-two' : 'links'}>
 
       {
         pages > 0 && pages < 4 && <Buttons 
@@ -150,8 +150,8 @@ function Form() {
       }
       
     {pages >= 1 && pages < 4 ? <Buttons 
-        btnClass={ pages >= 1  && pages < 4 ? 'next-step' : 'confirm'} 
-        name={ pages >= 1  && pages < 4 ? 'Next Step' : 'Confirm' } 
+        btnClass={ pages >= 1  && pages < 3 ? 'next-step' : 'confirm'} 
+        name={ pages >= 1  && pages < 3 ? 'Next Step' : 'Confirm' } 
         click={handleBtnSubmit} 
         /> : null}
       
